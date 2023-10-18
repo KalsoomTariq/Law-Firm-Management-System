@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_XXP38G1wEe6jUJDKyV_IQg" name="BsDomainModel">
+  <packageImport xmi:type="uml:PackageImport" xmi:id="_Xf1MMG1wEe6jUJDKyV_IQg">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="_pyttsG1wEe6jUJDKyV_IQg" name="Admin"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_smv7kG1wEe6jUJDKyV_IQg" name="Lawyer"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_vFVd4G1wEe6jUJDKyV_IQg" name="Case"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_vZnr0G1wEe6jUJDKyV_IQg" name="Calender"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_vqFwwG1wEe6jUJDKyV_IQg" name="Profile"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_v7fp0G1wEe6jUJDKyV_IQg" name="Hearings"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_wUbHMG1wEe6jUJDKyV_IQg" name="Schedule"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_swJD8G13Ee6jUJDKyV_IQg" name="Law Firm"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_zijy8G13Ee6jUJDKyV_IQg" name="Document"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_0povwG13Ee6jUJDKyV_IQg" name="Template"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_4yYGwG13Ee6jUJDKyV_IQg" name="Monthly Report"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_6jhUQG13Ee6jUJDKyV_IQg" name="Statistics"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_AiqMMG14Ee6jUJDKyV_IQg" name="Authentication"/>
+</uml:Model>
