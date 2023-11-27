@@ -16,4 +16,7 @@
   <packagedElement xmi:type="uml:Class" xmi:id="_4yYGwG13Ee6jUJDKyV_IQg" name="Monthly Report"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_6jhUQG13Ee6jUJDKyV_IQg" name="Statistics"/>
   <packagedElement xmi:type="uml:Class" xmi:id="_AiqMMG14Ee6jUJDKyV_IQg" name="Authentication"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_3GQhMG2NEe6YE_b54bBJow" name="Notification"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_EmvDoG2OEe6YE_b54bBJow" name="Client Details"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="_lRZtkG2PEe6YE_b54bBJow" name="Format"/>
 </uml:Model>

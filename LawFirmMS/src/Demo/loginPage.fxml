@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Demo.LoginController">
+   <left>
+      <AnchorPane id="welcomeSideBar" prefHeight="720.0" prefWidth="512.0" style="-fx-background-color: #9E7E41;" BorderPane.alignment="CENTER">
+         <children>
+            <Label id="companyName" layoutX="124.0" layoutY="416.0" text="Baloo Law Firm" textFill="#ffebc6">
+               <font>
+                  <Font name="Javanese Text" size="36.0" />
+               </font>
+            </Label>
+            <Line endX="193.0" layoutX="205.0" layoutY="546.0" startX="-100.0" stroke="#ffebc6" />
+            <ImageView id="logoImage" fitHeight="308.0" fitWidth="366.0" layoutX="95.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/Logo.png" />
+               </image>
+            </ImageView>
+            <Label id="companySlogan" layoutX="104.0" layoutY="564.0" text="Smarter Law, Better Practice" textFill="#ffebc6">
+               <font>
+                  <Font name="Javanese Text" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane id="welcomeMain" prefHeight="720.0" prefWidth="768.0" style="-fx-background-color: e0c394;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="720.0" fitWidth="768.0" opacity="0.66" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../resources/welcomePage.jpg" />
+               </image>
+            </ImageView>
+            <Pane layoutX="176.0" layoutY="122.0" opacity="0.96" prefHeight="504.0" prefWidth="482.0" style="-fx-background-color: #9E7E41; -fx-background-radius: 50;">
+               <children>
+                  <Label layoutX="129.0" layoutY="6.0" text="Account Login" textFill="#ffebc6">
+                     <font>
+                        <Font name="Javanese Text" size="37.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="34.0" layoutY="107.0" text="Username/Email" textFill="#ffebc6">
+                     <font>
+                        <Font name="Javanese Text" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="42.0" layoutY="225.0" text="Password" textFill="#ffebc6">
+                     <font>
+                        <Font name="Javanese Text" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="loginButton" layoutX="181.0" layoutY="382.0" onAction="#loginButtonOnAction" prefHeight="57.0" prefWidth="130.0" style="-fx-background-color: ffebc6;" text="Log In" textFill="#9e7e41">
+                     <font>
+                        <Font name="Goudy Old Style Bold" size="24.0" />
+                     </font>
+                  </Button>
+                  <TextField id="nameField" fx:id="nameField" layoutX="70.0" layoutY="187.0" prefHeight="35.0" prefWidth="335.0" style="-fx-background-radius: 20;">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </TextField>
+                  <Label layoutX="215.0" layoutY="120.0" text="*" textFill="#ff0707">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="145.0" layoutY="240.0" text="*" textFill="#ff0707">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="passwordField" layoutX="70.0" layoutY="292.0" prefHeight="35.0" prefWidth="335.0" style="-fx-background-color: #ffffff; -fx-border-radius: 50; -fx-background-radius: 20;" />
+                  <Button fx:id="backButton" layoutX="201.0" layoutY="446.0" mnemonicParsing="false" onAction="#backButtonOnAction" style="-fx-background-color: #9E7E41;" text="&lt;&lt; Go Back " textFill="#ffebc6">
+                     <font>
+                        <Font name="Javanese Text" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
