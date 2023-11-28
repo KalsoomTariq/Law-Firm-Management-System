@@ -1,10 +1,6 @@
 package Case;
 
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-
-import Util.jdbConnection;
+import java.time.LocalDate;
 
 public class CaseData {
 	private int id;
@@ -12,12 +8,12 @@ public class CaseData {
     private String type;
     private String details;
     private String status;
-    private Date startDate;
+    private LocalDate startDate;
     private String clientName;
     
-    private static String[] columns = {"caseId", "clientId", "caseType", "details", "status", "startDate"};
+//    private static String[] columns = {"caseId", "clientId", "caseType", "details", "status", "startDate"};
     
-    public CaseData(int id, int clientID, String type, String details, String status, Date startDate) {
+    public CaseData(int id, int clientID, String type, String details, String status, LocalDate startDate) {
 
     	this.id = id;
     	this.clientID = clientID;
@@ -34,30 +30,30 @@ public class CaseData {
     	this.type = type;
     	this.status = status;	
     }
-    
-    private ArrayList<CaseData> getCases() {
-        ArrayList<CaseData> caseList = new ArrayList<>();
-        try {
-        	jdbConnection conn = jdbConnection.getInstance();
-			try (ResultSet rs = conn.readData("Case", columns, null);) {
-			       while(rs.next()) {
-			    	    CaseData Case_ = new CaseData(rs.getInt("caseId"), rs.getInt("clientId"), rs.getString("caseType"), rs.getString("details"), rs.getString("status"), rs.getDate("startDate"));
-		                caseList.add(Case_); 
-			       }
-			}
-			catch(Exception e) {
-				System.out.println("Exception: "+e);
-			}
-			
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return caseList;
-    }
-    
-    public void getRegisteredData() {
+    public CaseData() {
     	
     }
+    
+//    private ArrayList<CaseData> getCases() {
+//        ArrayList<CaseData> caseList = new ArrayList<>();
+//        try {
+//        	jdbConnection conn = jdbConnection.getInstance();
+//			try (ResultSet rs = conn.readData("Case", columns, null);) {
+//			       while(rs.next()) {
+//			    	    CaseData Case_ = new CaseData(rs.getInt("caseId"), rs.getInt("clientId"), rs.getString("caseType"), rs.getString("details"), rs.getString("status"), rs.getDate("startDate"));
+//		                caseList.add(Case_); 
+//			       }
+//			}
+//			catch(Exception e) {
+//				System.out.println("Exception: "+e);
+//			}
+//			
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        return caseList;
+//    }
+    
     
 
 	public Integer getId() {
@@ -100,11 +96,11 @@ public class CaseData {
 		this.status = status;
 	}
 
-	public Date getStartDate() {
+	public LocalDate getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDate startDate) {
 		this.startDate = startDate;
 	}
 	public String getClientName() {

@@ -1,0 +1,7 @@
+/* style.css */
+
+.choice-box .context-menu { -fx-background-color:  #ffebc6; -fx-text-fill: #9e7e41; }
+
+.choice-box .menu-item:focused { -fx-background-color: #9e7e41; -fx-text-fill: #ffebc6; }
+
+

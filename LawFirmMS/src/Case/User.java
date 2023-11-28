@@ -1,6 +1,8 @@
 package Case;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 
 import Util.jdbConnection;
 
@@ -15,7 +17,9 @@ public class User{
     private String email;
 	private String password;
     private String role;
-    
+    public User() {
+    	
+    }
     // Constructor
     public User(int uId, int userId,String name, String email, String contact, String cnic, String address, String password, String role) {
         this.uniqueId = uId;
@@ -54,6 +58,32 @@ public class User{
 	    }
     	
 	    return false;
+    }
+    
+    public HashMap<String, Integer> populateCombo(){
+    	HashMap<String, Integer> map = new HashMap<>();
+    	jdbConnection conn = jdbConnection.getInstance();
+	    String sql = "Select u.name as Name, c.clientId as ID From Users u Join Clients c On u.userId = c.userId Join Cases s On c.clientId = s.clientId; \r\n"
+	    		+ "";
+
+	    try {
+	    	conn.stmt = conn.connection.prepareStatement(sql);
+	    	try (ResultSet rs = conn.stmt.executeQuery()) 
+	    	{
+		        while(rs.next()) {
+		        	String n = rs.getString("Name");
+		        	Integer i = rs.getInt("ID");
+		        	map.put(n, i);
+		        }
+		    }
+			catch(Exception e) {
+					System.out.println("Exception: "+e);
+			}			
+	        
+	    } catch (SQLException e) {
+	        System.out.println(e.getMessage());
+	    }
+    	return map;
     }
 
     // Getters and Setters

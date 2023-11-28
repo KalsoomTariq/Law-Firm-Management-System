@@ -1,11 +1,13 @@
 package Admin;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Case.CaseData;
+import Case.RegistrationController;
 import Util.jdbConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,14 +15,23 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 public class caseController implements Initializable {
+	FXMLLoader loader;
+	Parent root;
+	Stage stage;
+	
 	@FXML
 	private TextField searchBar;
 	@FXML
@@ -98,7 +109,27 @@ public class caseController implements Initializable {
 	
 	@FXML
 	private Button newCaseButton;
-	public void newCaseButtonOnAction(ActionEvent e) {
-		
+	public void newCaseButtonOnAction(ActionEvent event) {
+		 try {
+       	  // Load the FXML file
+           loader = new FXMLLoader(getClass().getResource("../Case/newCase.fxml"));
+           root = loader.load();
+
+           // Create and set up a new stage
+           stage= new Stage();
+           stage.initModality(Modality.WINDOW_MODAL);
+           stage.setScene(new Scene(root));
+           
+           RegistrationController rc = loader.getController();
+           rc.setDialogStage(stage);
+
+           // Show the dialog and wait for the user to close it
+           stage.showAndWait();
+           
+       } catch (IOException e) {
+           e.printStackTrace();
+       } 
 	}
+	
+
 }
