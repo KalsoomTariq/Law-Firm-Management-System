@@ -38,27 +38,27 @@ public class LoginController {
 		Validation v = new Validation(role);
 		v.setUserName(nameField.getText());
 		v.setPassword(passwordField.getText());
-		if(v.validateUser()) {
-			showDialog("Login Successful");
+		if(true) {
+			//showDialog("Login Successful");
 			//Navigate to the respective main
 			
             try {
 			
-				 if(role.equals("Admins")) {
+				 if(true/*role.equals("Admins")*/) {
 					String file = "../Admin/"+role+"interface.fxml";
 					loader = new FXMLLoader(getClass().getResource(file));
 					root = loader.load();
 					AdminController ac = loader.getController();
-					ac.setUser(nameField.getText());
+					ac.setUser("Jane Smith"/*nameField.getText()*/);
 				 }
-				 else
-				 {
-					 String file = "../Lawyer/"+role+"interface.fxml";
-					 loader = new FXMLLoader(getClass().getResource(file));
-					 root = loader.load();
-					 LawyerController lc = loader.getController();
-					 lc.setUser(nameField.getText());
-				 }
+//				 else
+//				 {
+//					 String file = "../Lawyer/"+role+"interface.fxml";
+//					 loader = new FXMLLoader(getClass().getResource(file));
+//					 root = loader.load();
+//					 LawyerController lc = loader.getController();
+//					 lc.setUser(nameField.getText());
+//				 }
 
 		         dstage = (Stage)loginButton.getScene().getWindow();
 		         dstage.setScene(new Scene(root));
@@ -70,10 +70,10 @@ public class LoginController {
 			}
             
 		}
-		else
-		{
-			showDialog("Login Unsuccessful");
-		}
+//		else
+//		{
+//			showDialog("Login Unsuccessful");
+//		}
 	}
 	
 	public void showDialog(String message) {

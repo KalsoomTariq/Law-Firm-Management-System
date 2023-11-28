@@ -7,11 +7,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Case.User;
-import Util.DialogController;
 import Util.UserUpdateController;
 import Util.jdbConnection;
-import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,16 +17,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class AdminController implements Initializable {
+	
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+	}
 
 	FXMLLoader loader;
 	Parent root;
@@ -170,11 +170,6 @@ public class AdminController implements Initializable {
 		address.setText(u.getAddress());
 		email.setText(u.getEmail());
 	}
-	
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
-		
-	}
+
 	
 }

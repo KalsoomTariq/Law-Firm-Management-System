@@ -1,1 +1,21 @@
-/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.table-view {
+    -fx-font-size: 24px;
+    -fx-font-family: 'Goudy Old Style';
+}
+
+.table-row-cell {
+    -fx-text-fill: black;
+}
+
+.table-row-cell:filled:selected {
+    -fx-text-fill: white;
+}
+
+.red-text {
+    -fx-text-fill: red;
+}
+
+.table-view .column-header-background .label {
+    -fx-background-color: #9e7e41; /* Replace with your desired color */
+}

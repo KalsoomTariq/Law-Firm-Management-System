@@ -1,0 +1,117 @@
+package Case;
+
+import java.sql.Date;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+
+import Util.jdbConnection;
+
+public class CaseData {
+	private int id;
+    private int clientID;
+    private String type;
+    private String details;
+    private String status;
+    private Date startDate;
+    private String clientName;
+    
+    private static String[] columns = {"caseId", "clientId", "caseType", "details", "status", "startDate"};
+    
+    public CaseData(int id, int clientID, String type, String details, String status, Date startDate) {
+
+    	this.id = id;
+    	this.clientID = clientID;
+    	this.type = type;
+    	this.details = details;
+    	this.status = status;
+    	this.startDate = startDate;
+    	
+    }
+    public CaseData(int cid, String cName,String status, String type) {
+
+    	this.id = cid;
+    	this.clientName = cName;
+    	this.type = type;
+    	this.status = status;	
+    }
+    
+    private ArrayList<CaseData> getCases() {
+        ArrayList<CaseData> caseList = new ArrayList<>();
+        try {
+        	jdbConnection conn = jdbConnection.getInstance();
+			try (ResultSet rs = conn.readData("Case", columns, null);) {
+			       while(rs.next()) {
+			    	    CaseData Case_ = new CaseData(rs.getInt("caseId"), rs.getInt("clientId"), rs.getString("caseType"), rs.getString("details"), rs.getString("status"), rs.getDate("startDate"));
+		                caseList.add(Case_); 
+			       }
+			}
+			catch(Exception e) {
+				System.out.println("Exception: "+e);
+			}
+			
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return caseList;
+    }
+    
+    public void getRegisteredData() {
+    	
+    }
+    
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getClientID() {
+		return clientID;
+	}
+
+	public void setClientID(int clientID) {
+		this.clientID = clientID;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getDetails() {
+		return details;
+	}
+
+	public void setDetails(String details) {
+		this.details = details;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+	public String getClientName() {
+		return clientName;
+	}
+	public void setClientName(String clientName) {
+		this.clientName = clientName;
+	}
+
+}

@@ -48,7 +48,7 @@
       </HBox>
    </top>
    <left>
-      <VBox prefHeight="630.0" prefWidth="212.0" style="-fx-background-color: #9E7E41; -fx-border-color: #000000; -fx-border-width: 0 2 0 0;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="630.0" prefWidth="210.0" style="-fx-background-color: #9E7E41; -fx-border-color: #000000; -fx-border-width: 0 2 0 0;" BorderPane.alignment="CENTER">
          <children>
             <HBox alignment="CENTER" onMouseClicked="#dashboardPage" prefHeight="48.0" prefWidth="106.0" spacing="10.0">
                <children>

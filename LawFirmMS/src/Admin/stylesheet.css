@@ -1,0 +1,36 @@
+/* style.css */
+.combo-box .list-cell {
+    -fx-text-fill: #ffebc6; /* Replace with your desired color */
+    -fx-background-radius: 5;
+    -fx-font-family: 'Goudy Old Style';
+    -fx-font-size: 16px;
+}
+    
+.table-view {
+	-fx-background-color: transparent;
+	-fx-border-color: transparent;
+}
+.table-view .column-header-background .label {
+    -fx-background-color: #9e7e41; /* Replace with your desired color */
+	-fx-text-fill: #ffebc6;
+	-fx-font-family: 'Goudy Old Style';
+    -fx-font-size: 16px;
+    -fx-border-color: transparent;
+}
+.table-view .table-cell .table-header {
+    -fx-border-color: transparent;
+}
+/* Row styles */
+.table-view .table-row-cell {
+    -fx-background-color: #ffebc6; /* Row background color */
+    -fx-text-fill: #9e7e41; /* Row text color */
+    -fx-font-family: 'Javanese';
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+}
+
+/* Selected row styles */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #9e7e41; /* Selected row background color */
+    -fx-text-fill: #ffebc6; /* Selected row text color */
+}
