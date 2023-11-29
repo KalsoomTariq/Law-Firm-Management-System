@@ -1,6 +1,8 @@
 package Case;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.ResourceBundle;
@@ -36,18 +38,47 @@ public class RegistrationController implements Initializable {
 		if(clientNameField.getText().isEmpty() && chooseClientCombo.getValue().isEmpty()) {
 			System.out.println("Changes not saved");
 			return;
+		}else if(!clientNameField.getText().isEmpty()) {
+			
+			String[] columns = {"name","email", "phone", "role"};
+			Object[] obj = {clientNameField.getText(),emailField.getText(),contactField.getText(),"Client"};
+			if(conn.insertData("users", columns ,obj )) {
+				String n = " name = '"+clientNameField.getText()+"'";
+				String[] s= {"userId"};
+				ResultSet rs = conn.readData("users", s, n);
+				Integer Id=0;
+				try {
+					if(rs.next()) {
+						Id = rs.getInt("userId");
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				// put data in cases table
+				String[] col = {"clientId","caseType", "startDate", "status", "details"};
+				Object[] ob = {Id,chooseCase.getValue(),LocalDate.now(),"Ongoing",detailsField.getText()};
+				if(conn.insertData("cases", col ,ob )) {
+					updateStage.close();
+				}else {
+					System.out.println("Not Inserted");
+				}
+				
+			}else {
+				System.out.println("Not Inserted");
+			}
 		}
 		else if(clientNameField.getText().isEmpty()) {
-			u.setUniqueId(map.get(chooseClientCombo.getValue()));
-			System.out.println("ID: "+u.getUniqueId());
-			c.setClientID(conn.getRowCount("clients")+1);
-			c.setId(conn.getRowCount("Cases")+1);
-			c.setStartDate(LocalDate.now());
+			u.setUserId(map.get(chooseClientCombo.getValue()));
 			c.setType(chooseCase.getValue());
+			c.setStartDate(LocalDate.now());
 			c.setStatus("Ongoing");
+			c.setDetails(detailsField.getText());
+			System.out.println("ID: "+u.getUserId());
 			
-			String[] columns = {"caseId","clientId","caseType", "startDate", "status", "details"};
-			Object[] obj = {c.getId(),u.getUniqueId(),c.getType(),c.getStartDate(),c.getStatus(),c.getDetails()};
+			String[] columns = {"clientId","caseType", "startDate", "status", "details"};
+			Object[] obj = {u.getUserId(),c.getType(),c.getStartDate(),c.getStatus(),c.getDetails()};
 			if(conn.insertData("cases", columns ,obj )) {
 				updateStage.close();
 			}else {

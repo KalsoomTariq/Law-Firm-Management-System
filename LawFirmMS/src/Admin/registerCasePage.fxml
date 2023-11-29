@@ -34,12 +34,13 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="caseData" layoutX="157.0" layoutY="111.0" prefHeight="390.0" prefWidth="722.0" style="-fx-background-color: transparent;" stylesheets="@stylesheet.css">
+      <TableView fx:id="caseData" layoutX="157.0" layoutY="111.0" prefHeight="450.0" prefWidth="648.0" style="-fx-background-color: transparent;" stylesheets="@stylesheet.css">
         <columns>
-          <TableColumn fx:id="caseIdColumn" prefWidth="151.0" text="Case Id" />
-          <TableColumn fx:id="clientNameColumn" prefWidth="189.0" text="Client Name" />
-            <TableColumn fx:id="statusColumn" prefWidth="188.0" text="Status" />
-            <TableColumn fx:id="caseTypeColumn" prefWidth="188.0" text="Case Type" />
+          <TableColumn fx:id="caseIdColumn" prefWidth="89.0" text="Case Id" />
+          <TableColumn fx:id="clientNameColumn" prefWidth="160.0" text="Client Name" />
+            <TableColumn fx:id="statusColumn" prefWidth="145.0" text="Status" />
+            <TableColumn fx:id="caseTypeColumn" prefWidth="138.0" text="Case Type" />
+            <TableColumn fx:id="caseDetailsColumn" prefWidth="114.0" text="Details" />
         </columns>
       </TableView>
    </children>

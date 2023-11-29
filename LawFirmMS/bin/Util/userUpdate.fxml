@@ -20,7 +20,7 @@
             </Label>
             <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="454.0" layoutY="12.0" onMouseClicked="#exitForm" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../Admin/images/exit.png" />
+                  <Image url="@..\resources\exit.png" />
                </image>
             </ImageView>
          </children>

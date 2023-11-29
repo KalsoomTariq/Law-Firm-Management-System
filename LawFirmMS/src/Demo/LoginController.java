@@ -38,7 +38,7 @@ public class LoginController {
 		Validation v = new Validation(role);
 		v.setUserName(nameField.getText());
 		v.setPassword(passwordField.getText());
-		if(true) {
+		if(true/*v.validate()*/) {
 			//showDialog("Login Successful");
 			//Navigate to the respective main
 			

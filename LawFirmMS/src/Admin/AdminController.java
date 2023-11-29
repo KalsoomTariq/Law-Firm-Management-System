@@ -39,14 +39,15 @@ public class AdminController implements Initializable {
 	public void setUser(String n) {
 		roleLabel.setText("Welcome Admin");
 		jdbConnection conn = jdbConnection.getInstance();
-		String sql = " select * from users u Inner join Admins a on u.userId = a.userId where u.name = ? ";
+		String sql = " select * from users where name = ? OR email = ? ";
 		try {
 			conn.stmt = conn.connection.prepareStatement(sql);
 			conn.stmt.setString(1, n);
+			conn.stmt.setString(2, n);
 			System.out.println("Sql Query: "+conn.stmt);
 			try (ResultSet rs = conn.stmt.executeQuery()) {
 			        if (rs.next()) {
-			           u = new User(rs.getInt("adminId"),rs.getInt("userId"),rs.getString("name"),rs.getString("email"),
+			           u = new User(rs.getInt("userId"),rs.getString("name"),rs.getString("email"),
 			        		   rs.getString("phone"),rs.getString("cnic"),rs.getString("address"),rs.getString("password"),
 			        		   rs.getString("role"));
 			           

@@ -33,10 +33,11 @@ public class Validation {
 		try {		
 			// Connect to database
 			jdbConnection conn = jdbConnection.getInstance();
-			String sql = " select * from users u Inner join "+this.userType+" l on u.userId = l.userId  where u.name = ? AND u.password = ? ";
+			String sql = " select * from users where role = "+this.userType+" AND (name = ? OR email = ?) AND u.password = ? ";
 			conn.stmt = conn.connection.prepareStatement(sql);
 			conn.stmt.setString(1, this.userName);
-			conn.stmt.setString(2, this.password);
+			conn.stmt.setString(2, this.userName);
+			conn.stmt.setString(3, this.password);
 			System.out.println("Sql Query: "+conn.stmt);
 			try (ResultSet rs = conn.stmt.executeQuery()) {
 			        if (rs.next()) {

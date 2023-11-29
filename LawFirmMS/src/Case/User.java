@@ -8,7 +8,6 @@ import Util.jdbConnection;
 
 public class User{
 
-    private int uniqueId;
     private int userId;
     private String name;
     private String contact;
@@ -21,8 +20,7 @@ public class User{
     	
     }
     // Constructor
-    public User(int uId, int userId,String name, String email, String contact, String cnic, String address, String password, String role) {
-        this.uniqueId = uId;
+    public User(int userId,String name, String email, String contact, String cnic, String address, String password, String role) {
         this.userId = userId;
         this.password = password;
         this.role = role;
@@ -63,7 +61,7 @@ public class User{
     public HashMap<String, Integer> populateCombo(){
     	HashMap<String, Integer> map = new HashMap<>();
     	jdbConnection conn = jdbConnection.getInstance();
-	    String sql = "Select u.name as Name, c.clientId as ID From Users u Join Clients c On u.userId = c.userId Join Cases s On c.clientId = s.clientId; \r\n"
+	    String sql = "Select distinct name as Name, userId as ID From Users u Join Cases c On u.userId = c.clientId; "
 	    		+ "";
 
 	    try {
@@ -87,14 +85,6 @@ public class User{
     }
 
     // Getters and Setters
-    public int getUniqueId() {
-        return uniqueId;
-    }
-
-    public void setUniqueId(int uId) {
-        this.uniqueId = uId;
-    }
-
     public int getUserId() {
         return userId;
     }
