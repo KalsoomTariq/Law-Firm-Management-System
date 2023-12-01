@@ -5,3 +5,33 @@
 .choice-box .menu-item:focused { -fx-background-color: #9e7e41; -fx-text-fill: #ffebc6; }
 
 
+/* Customizing TextArea */
+.text-area {
+    -fx-font-family: Goudy Old Style;  /* Font family */
+    -fx-font-size: 14px;     /* Font size */
+    -fx-text-fill:  #9E7E41;  /* Text color */
+    -fx-background-color: #ffebc6; /* Background color */
+    -fx-border-color:  #9E7E41;     /* Border color */
+    -fx-border-width: 2px; 
+    -fx-border-radius: 10;        /* Border width */
+}
+
+/* Customizing DatePicker */
+.date-picker {
+    -fx-background-color:  #9E7E41; /* Background color */
+}
+
+.date-picker .text-field {
+    -fx-font-family: Goudy Old Style;  /* Font family */
+    -fx-background-color:  #9E7E41; 
+    -fx-font-size: 14px;     /* Font size */
+    -fx-text-fill: #ffebc6;  /* Text color */
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: #ffebc6; /* Arrow button color */
+}
+
+.date-picker .arrow {
+    -fx-background-color: #9E7E41; /* Arrow color */
+}

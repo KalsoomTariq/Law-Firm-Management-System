@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane style="-fx-background-color: #ffebc6;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Admin.dateController">
    <children>
-      <Label alignment="CENTER" text="Register Case" />
+      <Label layoutX="15.0" layoutY="24.0" prefHeight="43.0" prefWidth="222.0" text="Assign Cases" textFill="#9e7e41">
+         <font>
+            <Font name="Goudy Old Style Bold" size="36.0" />
+         </font>
+      </Label>
+      <TableView fx:id="caseData" layoutX="80.0" layoutY="150.0" prefHeight="444.0" prefWidth="399.0" stylesheets="@stylesheet.css">
+        <columns>
+          <TableColumn fx:id="caseId1" prefWidth="79.0" text="CaseId" />
+          <TableColumn fx:id="hearingDate1" prefWidth="104.0" text="Hearing Date" />
+            <TableColumn fx:id="hearingTime1" prefWidth="108.0" text="Time" />
+            <TableColumn fx:id="assignButton" prefWidth="101.33334350585938" text="Assign" />
+        </columns>
+      </TableView>
+      <TableView fx:id="assignedData" layoutX="630.0" layoutY="150.0" prefHeight="440.0" prefWidth="399.0" stylesheets="@stylesheet.css">
+         <columns>
+            <TableColumn fx:id="caseId2" prefWidth="79.0" text="CaseId" />
+            <TableColumn fx:id="hearingDate2" prefWidth="104.0" text="Hearing Date" />
+            <TableColumn fx:id="hearingTime2" prefWidth="92.0" text="Time" />
+            <TableColumn fx:id="lawyer" prefWidth="116.0" text="Lawyer " />
+         </columns>
+      </TableView>
+      <Line endX="849.0" layoutX="221.0" layoutY="86.0" startX="-221.0" stroke="#9e7e41" strokeWidth="2.0" />
+      <Label layoutX="161.0" layoutY="94.0" prefHeight="43.0" prefWidth="317.0" text="Assign Hearing Dates " textFill="#9e7e41">
+         <font>
+            <Font name="Goudy Old Style Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="740.0" layoutY="91.0" prefHeight="43.0" prefWidth="317.0" text="Assigned Cases" textFill="#9e7e41">
+         <font>
+            <Font name="Goudy Old Style Bold" size="24.0" />
+         </font>
+      </Label>
    </children>
-</HBox>
+</AnchorPane>

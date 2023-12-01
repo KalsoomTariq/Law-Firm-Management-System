@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item key="org.eclipse.jdt.ui.lastextjar" value="D:\SOMAL\SETUPS\openjfx-21.0.1_windows-x64_bin-sdk\javafx-sdk-21.0.1\lib"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="D:\SOMAL\SDA_Git\Law-Firm-Management-System\LawFirmMS\resources\jar_files"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>
 		<item key="layout" value="2"/>
