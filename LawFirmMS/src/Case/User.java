@@ -8,6 +8,9 @@ import Util.jdbConnection;
 
 public class User{
 
+	
+	public static User user;
+	
     private int userId;
     private String name;
     private String contact;
@@ -19,8 +22,14 @@ public class User{
     public User() {
     	
     }
+    public static User getInstance(int userId,String name, String email, String contact, String cnic, String address, String password, String role) {
+    	if(user == null) {
+    		user = new User(userId,name,email,contact,cnic,address,password,role);
+    	}
+    	return user;
+    }
     // Constructor
-    public User(int userId,String name, String email, String contact, String cnic, String address, String password, String role) {
+    private User(int userId,String name, String email, String contact, String cnic, String address, String password, String role) {
         this.userId = userId;
         this.password = password;
         this.role = role;

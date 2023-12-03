@@ -39,7 +39,7 @@ public class LawyerController implements Initializable {
 			System.out.println("Sql Query: "+conn.stmt);
 			try (ResultSet rs = conn.stmt.executeQuery()) {
 			        if (rs.next()) {
-			           u = new User(rs.getInt("userId"),rs.getString("name"),rs.getString("email"),
+			           u = User.getInstance(rs.getInt("userId"),rs.getString("name"),rs.getString("email"),
 			        		   rs.getString("phone"),rs.getString("cnic"),rs.getString("address"),rs.getString("password"),
 			        		   rs.getString("role"));
 			           

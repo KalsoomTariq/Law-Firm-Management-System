@@ -84,7 +84,7 @@ public class jdbConnection {
         if (whereClause != null && !whereClause.isEmpty()) {
             queryBuilder.append(" WHERE ").append(whereClause);
         }
-
+        System.out.println(queryBuilder);
         try {
             Statement statement = connection.createStatement();
             

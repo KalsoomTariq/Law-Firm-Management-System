@@ -13,13 +13,21 @@ import Util.jdbConnection;
 public class HDateData {
 	
 	
-	 private Integer hearingId;
+	 @Override
+	public String toString() {
+		return "HDateData [hearingId=" + hearingId + ", caseId=" + caseId + ", hearingDateTime=" + hearingDateTime
+				+ ", status=" + status + ", notes=" + notes + "]";
+	}
+
+
+	private Integer hearingId;
 	 private Integer caseId;
 	 private LocalDateTime hearingDateTime;
 	 private LocalDate date;
 	 private LocalTime time;
 	 private String status;
 	 private String notes;
+	 private String caseType;
 	 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); 
 	 public HDateData() {}
 	 public HDateData(Integer hid, Integer cid, String ld, String st, String n){
@@ -108,6 +116,12 @@ public class HDateData {
 
 	public void setTime(LocalTime time) {
 		this.time = time;
+	}
+	public String getCaseType() {
+		return caseType;
+	}
+	public void setCaseType(String caseType) {
+		this.caseType = caseType;
 	}
 	
 }

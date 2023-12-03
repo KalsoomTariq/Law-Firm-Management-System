@@ -17,7 +17,6 @@
     <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
     <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
     <fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
-    <fullyQualifiedTypeName name="Util.jdbConnection"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="javafx.util.Callback"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TableCell"/>
@@ -30,9 +29,7 @@
     <fullyQualifiedTypeName name="javafx.fxml.FXML"/>
     <fullyQualifiedTypeName name="javafx.scene.control.Label"/>
     <fullyQualifiedTypeName name="Util.caseDetailsController"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="java.time.ZoneId"/>
     <fullyQualifiedTypeName name="java.time.Instant"/>
     <fullyQualifiedTypeName name="java.sql.Time"/>
     <fullyQualifiedTypeName name="Util.DialogController"/>
@@ -40,8 +37,6 @@
     <fullyQualifiedTypeName name="java.time.LocalTime"/>
     <fullyQualifiedTypeName name="javafx.scene.control.ChoiceBox"/>
     <fullyQualifiedTypeName name="Util.chooseLawyerController"/>
-    <fullyQualifiedTypeName name="Case.HDateData"/>
-    <fullyQualifiedTypeName name="javafx.fxml.Initializable"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TextArea"/>
     <fullyQualifiedTypeName name="javafx.scene.control.DatePicker"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
@@ -49,4 +44,12 @@
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="Util.jdbConnection"/>
+    <fullyQualifiedTypeName name="javafx.scene.Node"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="Case.HDateData"/>
+    <fullyQualifiedTypeName name="java.time.ZoneId"/>
+    <fullyQualifiedTypeName name="Case.User"/>
+    <fullyQualifiedTypeName name="javafx.fxml.Initializable"/>
+    <fullyQualifiedTypeName name="Case.caseDateController"/>
 </qualifiedTypeNameHistroy>

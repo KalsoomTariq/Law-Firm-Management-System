@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import Case.HDateData;
-import Util.DialogController;
 import Util.chooseLawyerController;
 import Util.jdbConnection;
 import javafx.collections.FXCollections;
@@ -20,7 +19,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -30,9 +28,6 @@ public class dateController implements Initializable {
 	FXMLLoader loader;
 	Parent root;
 	Stage stage;
-	
-	@FXML
-	private TextField searchBar;
 	@FXML
 	private TableView<HDateData> caseData;
 	@FXML

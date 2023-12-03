@@ -33,7 +33,7 @@ public class Validation {
 		try {		
 			// Connect to database
 			jdbConnection conn = jdbConnection.getInstance();
-			String sql = " select * from users where role = "+this.userType+" AND (name = ? OR email = ?) AND u.password = ? ";
+			String sql = " select * from users where role = '"+this.userType+"' AND (name = ? OR email = ?) AND password = ? ";
 			conn.stmt = conn.connection.prepareStatement(sql);
 			conn.stmt.setString(1, this.userName);
 			conn.stmt.setString(2, this.userName);
