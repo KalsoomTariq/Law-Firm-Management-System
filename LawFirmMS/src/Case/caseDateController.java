@@ -1,17 +1,24 @@
 package Case;
 
 import java.net.URL;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+
+import Util.jdbConnection;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 
 public class caseDateController implements Initializable {
 	private Stage updateStage;
+	@FXML
+	private TextArea detailsField;
 	@FXML
 	private DatePicker datePicker;
 	@FXML
@@ -22,8 +29,33 @@ public class caseDateController implements Initializable {
 	private Button turnInButton;
 	CaseData c;
 	public void  turnInButtonOnAction(ActionEvent event) {
+		if(datePicker.getValue().equals(null) || minPick.getValue().equals(null) 
+				|| hourPick.getValue().isEmpty()) {
+			updateStage.close();
+		}
 		/// implementation left
+		// Update the status of current date as resolved
+		jdbConnection conn = jdbConnection.getInstance();
+		String[] col1 = {"status"};
+		Object[] obj1 = {"Resolved",c.getHearingId()};
+		String wc1 = " hearingId = ? ;";
+		if(conn.updateData("hearingdates", col1, obj1, wc1)) {
+			System.out.println("Case Resolved");
+		}
+
+		// Insert Hearing date
+		String[] col2 = {"caseId", "hearingDateTime", "status", "notes"};
+		// Compose time and date
+		String str = datePicker.getValue()+" "+hourPick.getValue()+":"+minPick.getValue()+":00";
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); 
+		LocalDateTime dateTime = LocalDateTime.parse(str, formatter);
+
+		Object[] ob1= {c.getId(),dateTime,"Pending",detailsField.getText()};
+		if(conn.insertData("hearingdates", col2, ob1)) {
+			System.out.println("Hearing date inserted");
+		}
 		
+		updateStage.close();
 	}
 
     public void setDialogStage(Stage s) {
@@ -60,6 +92,7 @@ public class caseDateController implements Initializable {
 	}
 	public void setCase(CaseData c) {
 		this.c = c;
+		System.out.println(c);
 	}
 	@FXML
 	private void exitForm() {

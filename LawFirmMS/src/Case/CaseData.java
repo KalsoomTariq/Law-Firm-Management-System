@@ -3,6 +3,11 @@ package Case;
 import java.time.LocalDate;
 
 public class CaseData {
+	@Override
+	public String toString() {
+		return "CaseData [id=" + id + ", clientID=" + clientID + ", type=" + type + ", details=" + details + ", status="
+				+ status + ", startDate=" + startDate + ", clientName=" + clientName + "]";
+	}
 	private int id;
     private int clientID;
     private String type;
@@ -10,6 +15,7 @@ public class CaseData {
     private String status;
     private LocalDate startDate;
     private String clientName;
+    private int hearingId;
     
 //    private static String[] columns = {"caseId", "clientId", "caseType", "details", "status", "startDate"};
     
@@ -23,12 +29,13 @@ public class CaseData {
     	this.startDate = startDate;
     	
     }
-    public CaseData(int cid, String cName,String status, String type) {
+    public CaseData(int cid, String cName,String status, String type,int hid) {
 
     	this.id = cid;
     	this.clientName = cName;
     	this.type = type;
     	this.status = status;	
+    	this.setHearingId(hid);
     }
     public CaseData() {
     	
@@ -108,6 +115,12 @@ public class CaseData {
 	}
 	public void setClientName(String clientName) {
 		this.clientName = clientName;
+	}
+	public Integer getHearingId() {
+		return hearingId;
+	}
+	public void setHearingId(int hearingId) {
+		this.hearingId = hearingId;
 	}
 
 }

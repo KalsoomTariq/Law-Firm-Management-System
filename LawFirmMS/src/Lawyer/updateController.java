@@ -7,8 +7,8 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import Case.CaseData;
-import Case.User;
 import Case.caseDateController;
+import Util.User;
 import Util.caseDetailsController;
 import Util.jdbConnection;
 import javafx.collections.FXCollections;
@@ -40,6 +40,8 @@ public class updateController implements Initializable{
 	@FXML
 	private TableColumn<CaseData,String> clientNameColumn;
 	@FXML
+	private TableColumn<CaseData,Integer> hearingIdColumn;
+	@FXML
 	private TableColumn<CaseData,String> updateCaseColumn;
 	@FXML
 	private TableColumn<CaseData,String> caseTypeColumn;
@@ -49,10 +51,14 @@ public class updateController implements Initializable{
 	private ObservableList<CaseData> caseObsList =FXCollections.observableArrayList();
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		caseObsList.clear();
+		updateCase.setItems(null);
+		
 		// TODO Auto-generated method stub
 		u = User.getInstance(0, null, null, null, null, null, null, null);
 		jdbConnection conn = jdbConnection.getInstance();
-		String sql = "SELECT c.caseId, u.name AS clientName, c.caseType, c.details FROM Cases c JOIN Users u ON c.clientId = u.userId JOIN \r\n"
+		String sql = "SELECT l.lawyerId,hd.hearingId,c.caseId, u.name AS clientName, c.caseType, c.details FROM Cases c JOIN Users u ON c.clientId = u.userId JOIN \r\n"
 				+ "HearingDates hd ON c.caseId = hd.caseId JOIN "
 				+ "Lawyers l ON hd.lawyerId = l.lawyerId "
 				+ "WHERE l.userId = ? AND hd.status = 'Assigned';";
@@ -63,17 +69,21 @@ public class updateController implements Initializable{
 			try (ResultSet rs = conn.stmt.executeQuery()) {
 				while(rs.next()) {
 					Integer cid = rs.getInt("caseId");
+					Integer hid = rs.getInt("hearingId");
 					String cname = rs.getString("clientName");
 					String st = rs.getString("details");
 					String ctp = rs.getString("caseType");
 					
-					caseObsList.add(new CaseData(cid,cname,st,ctp));
+					
+					caseObsList.add(new CaseData(cid,cname,st,ctp,hid));
 				
 				}
 				
+				hearingIdColumn.setCellValueFactory(new PropertyValueFactory<>("hearingId"));
 				caseIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
 				clientNameColumn.setCellValueFactory(new PropertyValueFactory<>("clientName"));
 				caseTypeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
+				
 				
 				// insert view case button in each row
 				Callback<TableColumn<CaseData,String>,TableCell<CaseData,String>> cellFactory1 = (param)->{
@@ -137,7 +147,6 @@ public class updateController implements Initializable{
 					return cell;
 				};
 				
-				// insert view case button in each row
 				Callback<TableColumn<CaseData,String>,TableCell<CaseData,String>> cellFactory2 = (param)->{
 					
 					//Make tablecell with buttons
@@ -155,6 +164,7 @@ public class updateController implements Initializable{
 								final Button editButton = new Button("Update");
 								editButton.setOnAction(event->{
 									CaseData c = getTableView().getItems().get(getIndex());
+									System.out.println(c);
 									System.out.println("Case Id: "+c.getId());
 									 try {
 								        	  // Load the FXML file
@@ -174,6 +184,8 @@ public class updateController implements Initializable{
 								            
 								            // Show the dialog and wait for the user to close it
 								            stage.showAndWait();
+								            
+								            initialize(arg0,arg1);
 								            
 								        } catch (IOException e) {
 								            e.printStackTrace();

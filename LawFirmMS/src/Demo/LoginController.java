@@ -1,5 +1,14 @@
 package Demo;
 
+/*
+ * ---------------------------------------------------------------------------------------
+ * --------------------------------------------------------------------------------------- 
+ * 									FACTORY PATTERN
+ * ---------------------------------------------------------------------------------------
+ * ---------------------------------------------------------------------------------------
+ */
+
+
 import java.io.IOException;
 import Admin.AdminController;
 import Lawyer.LawyerController;
@@ -20,9 +29,11 @@ public class LoginController {
 	
 	FXMLLoader loader;
 	Parent root;
-	Stage dstage;
 	Scene scene;
 	String role;
+	
+	// Factory Persistance Handler
+	Stage dstage;
 
 	public void setRole(String string) {
 		// TODO Auto-generated method stub
@@ -39,20 +50,22 @@ public class LoginController {
 		v.setUserName(nameField.getText());
 		v.setPassword(passwordField.getText());
 		if(v.validateUser()) {
-			showDialog("Login Successful");
-//			Navigate to the respective main
-			
+			showDialog("Login Successful");			
             try {
 			
 				 if(role.equals("Admins")) {
+					// Persistance handler assignment for Admin
 					String file = "../Admin/"+role+"interface.fxml";
 					loader = new FXMLLoader(getClass().getResource(file));
 					root = loader.load();
+					
+					
 					AdminController ac = loader.getController();
 					ac.setUser(nameField.getText());
 				 }
-				 else
+				 else if(role.equals("Lawyers"))
 				 {
+					 // Persistance handler assignment for Lawyer
 					 String file = "../Lawyer/"+role+"interface.fxml";
 					 loader = new FXMLLoader(getClass().getResource(file));
 					 root = loader.load();
@@ -60,6 +73,7 @@ public class LoginController {
 					 lc.setUser(nameField.getText());
 				 }
 
+				 // Implementing handler
 		         dstage = (Stage)loginButton.getScene().getWindow();
 		         dstage.setScene(new Scene(root));
 		         dstage.show();

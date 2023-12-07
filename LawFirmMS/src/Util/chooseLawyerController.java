@@ -24,6 +24,7 @@ public class chooseLawyerController implements Initializable {
 		for(String s : map.keySet()) {
 			chooseLawyer.getItems().add(s);
 		}
+		System.out.println(map);
 	}
 	
 	@Override
@@ -54,6 +55,7 @@ public class chooseLawyerController implements Initializable {
 		else
 		{
 			String[] columns = {"lawyerId","status"};
+			System.out.println( map.get(chooseLawyer.getValue()));
 			Object[] obj = { map.get(chooseLawyer.getValue()),"Assigned" , d.getHearingId()};
 			String s = "hearingId = ?;";
 			if(conn.updateData("hearingdates", columns, obj, s)) {

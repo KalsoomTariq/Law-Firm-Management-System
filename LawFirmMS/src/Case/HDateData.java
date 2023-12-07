@@ -28,6 +28,7 @@ public class HDateData {
 	 private String status;
 	 private String notes;
 	 private String caseType;
+	 private Integer lawyerid;
 	 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"); 
 	 public HDateData() {}
 	 public HDateData(Integer hid, Integer cid, String ld, String st, String n){
@@ -44,8 +45,14 @@ public class HDateData {
 	    public HashMap<String, Integer> populateCombo(){
 	    	HashMap<String, Integer> map = new HashMap<>();
 	    	jdbConnection conn = jdbConnection.getInstance();
-		    String sql = "SELECT DISTINCT lawyerId as ID, name as Name FROM Lawyers l join users u on l.userid = u.userid WHERE l.lawyerId NOT IN (SELECT h.lawyerId FROM HearingDates h WHERE h.hearingDateTime = ? AND h.lawyerId IS NOT NULL);";  
-
+		    String sql ="SELECT DISTINCT u.userId,lawyerId, name\r\n"
+		    		+ "FROM Lawyers l join users u on l.userid = u.userid \r\n"
+		    		+ "WHERE l.lawyerId NOT IN (\r\n"
+		    		+ "    SELECT h.lawyerId\r\n"
+		    		+ "    FROM HearingDates h\r\n"
+		    		+ "    WHERE h.hearingDateTime = ? \r\n"
+		    		+ "    AND h.lawyerId IS NOT NULL\r\n"
+		    		+ "); ";
 		    try {
 		    	conn.stmt = conn.connection.prepareStatement(sql);
 		    	conn.stmt.setString(1, this.hearingDateTime.toString());
@@ -53,7 +60,7 @@ public class HDateData {
 		    	{
 			        while(rs.next()) {
 			        	String n = rs.getString("Name");
-			        	Integer i = rs.getInt("ID");
+			        	Integer i = rs.getInt("lawyerId");
 			        	map.put(n, i);
 			        }
 			    }
@@ -122,6 +129,12 @@ public class HDateData {
 	}
 	public void setCaseType(String caseType) {
 		this.caseType = caseType;
+	}
+	public Integer getLawyerid() {
+		return lawyerid;
+	}
+	public void setLawyerid(Integer lawyerid) {
+		this.lawyerid = lawyerid;
 	}
 	
 }

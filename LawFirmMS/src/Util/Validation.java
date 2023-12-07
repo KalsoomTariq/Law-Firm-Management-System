@@ -31,7 +31,7 @@ public class Validation {
 	
 	public Boolean validateUser() {
 		try {		
-			// Connect to database
+
 			jdbConnection conn = jdbConnection.getInstance();
 			String sql = " select * from users where role = '"+this.userType+"' AND (name = ? OR email = ?) AND password = ? ";
 			conn.stmt = conn.connection.prepareStatement(sql);

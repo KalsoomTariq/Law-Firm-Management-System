@@ -17,7 +17,7 @@ import java.time.ZonedDateTime;
 import java.util.*;
 
 import Case.HDateData;
-import Case.User;
+import Util.User;
 import Util.jdbConnection;
 
 public class ScheduleController implements Initializable {

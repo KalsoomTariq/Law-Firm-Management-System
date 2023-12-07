@@ -34,7 +34,7 @@
             </Button>
          </children>
       </HBox>
-      <TableView fx:id="caseData" layoutX="157.0" layoutY="111.0" prefHeight="450.0" prefWidth="648.0" style="-fx-background-color: transparent;" stylesheets="@stylesheet.css">
+      <TableView fx:id="caseData" layoutX="157.0" layoutY="111.0" prefHeight="450.0" prefWidth="651.0" style="-fx-background-color: transparent;" stylesheets="@stylesheet.css">
         <columns>
           <TableColumn fx:id="caseIdColumn" prefWidth="89.0" text="Case Id" />
           <TableColumn fx:id="clientNameColumn" prefWidth="160.0" text="Client Name" />

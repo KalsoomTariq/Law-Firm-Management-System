@@ -1,10 +1,8 @@
-package Case;
+package Util;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
-
-import Util.jdbConnection;
 
 public class User{
 

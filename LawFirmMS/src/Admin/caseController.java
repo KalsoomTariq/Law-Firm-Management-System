@@ -51,9 +51,9 @@ public class caseController implements Initializable {
 	private TableColumn<CaseData, String> caseDetailsColumn;
 	@FXML
 	private ObservableList<CaseData> caseObsList =FXCollections.observableArrayList();
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+	
+	public void load() {
+		caseObsList.clear();
 		jdbConnection conn = jdbConnection.getInstance();
 		String sql = "SELECT c.caseId, u.name AS clientName, c.status, c.caseType FROM Cases c JOIN Users u ON c.clientId = u.userId;";
 		try {
@@ -66,7 +66,7 @@ public class caseController implements Initializable {
 					String st = rs.getString("status");
 					String ctp = rs.getString("caseType");
 					
-					caseObsList.add(new CaseData(cid,cname,st,ctp));
+					caseObsList.add(new CaseData(cid,cname,st,ctp,0));
 				
 				}
 				
@@ -74,7 +74,19 @@ public class caseController implements Initializable {
 				clientNameColumn.setCellValueFactory(new PropertyValueFactory<>("clientName"));
 				statusColumn.setCellValueFactory(new PropertyValueFactory<>("status"));
 				caseTypeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
-				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// TODO Auto-generated method stub
+		
+				load();
 				// insert view case button in each row
 				Callback<TableColumn<CaseData,String>,TableCell<CaseData,String>> cellFactory = (param)->{
 					
@@ -171,12 +183,7 @@ public class caseController implements Initializable {
 				sortedCaseData.comparatorProperty().bind(caseData.comparatorProperty());
 				caseDetailsColumn.setCellFactory(cellFactory);
 				caseData.setItems(sortedCaseData);
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+			
 	}
 	
 	
@@ -198,7 +205,7 @@ public class caseController implements Initializable {
 
            // Show the dialog and wait for the user to close it
            stage.showAndWait();
-           
+           load();
        } catch (IOException e) {
            e.printStackTrace();
        } 

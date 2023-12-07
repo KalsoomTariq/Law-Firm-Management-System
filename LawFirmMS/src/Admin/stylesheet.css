@@ -34,3 +34,43 @@
     -fx-background-color: #9e7e41; /* Selected row background color */
     -fx-text-fill: #ffebc6; /* Selected row text color */
 }
+
+.chart-legend {
+    -fx-background-color: #9e7e41; /* Legend background */
+    -fx-padding: 10px;
+}
+
+.chart-pie-label {
+    -fx-font-size: 12px;
+    -fx-fill:#9e7e41;
+}
+
+/* Customizing bar colors based on series */
+
+.chart-series-bar.series0 .chart-bar {
+  
+}
+
+.chart-series-bar.series1 .chart-bar {
+
+}
+
+/* Customizing the axis */
+.axis {
+    -fx-tick-label-fill: #9e7e41;
+}
+
+/* Customizing the chart title */
+.chart-title {
+	-fx-font-family: 'Goudy Old Style';
+	-fx-text-fill: #9e7e41;
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+}
+
+.chart-legend {
+    -fx-background-color :#9e7e41;
+    -fx-padding: 10px;
+}
+
+

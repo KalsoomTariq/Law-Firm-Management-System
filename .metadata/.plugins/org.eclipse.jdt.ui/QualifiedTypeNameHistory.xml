@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="java.sql.ResultSetMetaData"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TableView"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TableColumn"/>
-    <fullyQualifiedTypeName name="javafx.collections.ObservableList"/>
-    <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
     <fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
     <fullyQualifiedTypeName name="javafx.collections.transformation.FilteredList"/>
     <fullyQualifiedTypeName name="javafx.collections.transformation.SortedList"/>
@@ -37,19 +34,30 @@
     <fullyQualifiedTypeName name="java.time.LocalTime"/>
     <fullyQualifiedTypeName name="javafx.scene.control.ChoiceBox"/>
     <fullyQualifiedTypeName name="Util.chooseLawyerController"/>
-    <fullyQualifiedTypeName name="javafx.scene.control.TextArea"/>
     <fullyQualifiedTypeName name="javafx.scene.control.DatePicker"/>
     <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
     <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.HashSet"/>
     <fullyQualifiedTypeName name="java.util.Set"/>
-    <fullyQualifiedTypeName name="Util.jdbConnection"/>
     <fullyQualifiedTypeName name="javafx.scene.Node"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="Case.HDateData"/>
     <fullyQualifiedTypeName name="java.time.ZoneId"/>
     <fullyQualifiedTypeName name="Case.User"/>
     <fullyQualifiedTypeName name="javafx.fxml.Initializable"/>
     <fullyQualifiedTypeName name="Case.caseDateController"/>
+    <fullyQualifiedTypeName name="Util.User"/>
+    <fullyQualifiedTypeName name="Util.UserC"/>
+    <fullyQualifiedTypeName name="Util.loadData"/>
+    <fullyQualifiedTypeName name="javafx.scene.chart.PieChart"/>
+    <fullyQualifiedTypeName name="javafx.collections.ObservableList"/>
+    <fullyQualifiedTypeName name="javafx.collections.FXCollections"/>
+    <fullyQualifiedTypeName name="javafx.beans.binding.Bindings"/>
+    <fullyQualifiedTypeName name="javafx.scene.chart.BarChart"/>
+    <fullyQualifiedTypeName name="javafx.scene.chart.CategoryAxis"/>
+    <fullyQualifiedTypeName name="javafx.scene.chart.NumberAxis"/>
+    <fullyQualifiedTypeName name="javafx.scene.chart.XYChart"/>
+    <fullyQualifiedTypeName name="Util.jdbConnection"/>
+    <fullyQualifiedTypeName name="Case.HDateData"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.TextArea"/>
 </qualifiedTypeNameHistroy>

@@ -102,6 +102,8 @@ public class dateController implements Initializable {
 								final Button editButton = new Button("Assign");
 								editButton.setOnAction(event->{
 									HDateData d = getTableView().getItems().get(getIndex());
+									System.out.println("In date contrller");
+									System.out.println(d);
 									System.out.println("Case Id: "+d.getCaseId());
 									 try {
 								        	  // Load the FXML file
@@ -118,6 +120,7 @@ public class dateController implements Initializable {
 								            cl.setDialogStage(stage);
 								            // Show the dialog and wait for the user to close it
 								            stage.showAndWait();
+								            reload();
 								            
 								        } catch (IOException e) {
 								            e.printStackTrace();
@@ -146,37 +149,6 @@ public class dateController implements Initializable {
 				assignButton.setCellFactory(cellFactory1);
 				caseData.setItems(caseObsList);
 				
-//				FilteredList<HDateData> filterCaseData = new FilteredList<>(caseObsList,b->true);
-//				searchBar.textProperty().addListener((observable,oldvalue,newvalue)->{
-//					filterCaseData.setPredicate( caseData -> {
-//						
-//						// no search value
-//						if(newvalue.isEmpty() || newvalue.isBlank() || newvalue == null) {
-//							return true;
-//						}
-//						String srch = newvalue.toLowerCase();
-//						if(caseData.getClientName().toLowerCase().indexOf(srch)>-1)
-//						{
-//							return true;
-//							
-//						}
-//						else if(caseData.getId().toString().indexOf(srch)>-1) {
-//							
-//							return true;
-//						}
-//						else if(caseData.getStatus().toLowerCase().indexOf(srch)>-1) {
-//							
-//							return true;
-//						}
-//						
-//						return false;
-//					});
-//				});
-//				
-//				SortedList<CaseData> sortedCaseData = new SortedList<>(filterCaseData);
-//				sortedCaseData.comparatorProperty().bind(caseData.comparatorProperty());
-//				assignButton.setCellFactory(cellFactory1);
-//				caseData.setItems(sortedCaseData);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -187,7 +159,20 @@ public class dateController implements Initializable {
 	
 	private void loadT2() {
 		jdbConnection conn = jdbConnection.getInstance();
-		String sql = "Select c.caseId, h.status,h.hearingId ,hearingdatetime,name from cases c join hearingdates h on c.caseId = h.caseId Join users u on h.lawyerid = u.userId where h.lawyerid is not null;";
+		String sql = "SELECT \r\n"
+				+ "	hd.caseId,\r\n"
+				+ "    hd.status,\r\n"
+				+ "    hd.hearingId,\r\n"
+				+ "	hd.hearingDateTime,\r\n"
+				+ "    u.name AS lawyerName\r\n"
+				+ "FROM \r\n"
+				+ "    HearingDates hd\r\n"
+				+ "JOIN \r\n"
+				+ "    Lawyers l ON hd.lawyerId = l.lawyerId\r\n"
+				+ "JOIN \r\n"
+				+ "    Users u ON l.userId = u.userId\r\n"
+				+ "WHERE \r\n"
+				+ "    hd.status IN ('Assigned', 'Resolved');";
 		try {
 			conn.stmt = conn.connection.prepareStatement(sql);
 			System.out.println("Sql Query: "+conn.stmt);
@@ -197,7 +182,7 @@ public class dateController implements Initializable {
 					Integer hid = rs.getInt("hearingId");
 					String ld = rs.getString("hearingdatetime");
 					String st = rs.getString("status");
-					String n = rs.getString("name");
+					String n = rs.getString("lawyerName");
 					
 					dateObsList.add(new HDateData(hid,cid,ld,st,n));
 				
@@ -216,6 +201,13 @@ public class dateController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public void reload() {
+		dateObsList.clear();
+		caseObsList.clear();
+		loadT1();
+		loadT2();
 	}
 	
 }

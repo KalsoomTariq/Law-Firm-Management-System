@@ -17,7 +17,9 @@ import java.sql.Statement;
  */
 
 public class jdbConnection {
+	
 	private static jdbConnection instance;
+	
 	public Connection connection;
 	public PreparedStatement stmt;
 
@@ -109,6 +111,7 @@ public class jdbConnection {
         if (whereClause != null && !whereClause.isEmpty()) {
             queryBuilder.append(" WHERE ").append(whereClause);
         }
+        System.out.println(queryBuilder);
 
         try (PreparedStatement preparedStatement = connection.prepareStatement(queryBuilder.toString())) {
             for (int i = 0; i < values.length; i++) {
